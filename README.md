@@ -31,7 +31,7 @@ knowledge:
 - :soccer: Soccer
 - :books: Read
 
-## Projects
+## Current Projects
 
 - 🗻 ANDES: Aplicaciones Neuquinas de Salud (2015 - present)
 
