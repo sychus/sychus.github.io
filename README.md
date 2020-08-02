@@ -21,7 +21,7 @@ knowledge:
 - Head. of the software engineering department (2015-2016) Ministry of Health.
 
 :computer: **Developer experience**
-- Senior full stack developer (2015) Ministry of Health.
+- Senior full stack developer (2015 - present) Ministry of Health.
 - SemiSenior full stack developer (2010 - 2015) Hospital Provincial Neuquén (Dr. Castro Rendón)
 - semiSenior full stack developer (2007 - 2010) Petrobras S.A
 
