@@ -16,7 +16,8 @@ knowledge:
 - :fire: [FHIR](http://fhir.org/) + 3 years
 
 :briefcase: **Managment experience**
-- General director of health information and communication systems (2019 - preset).
+- Team leader of the software engineer department (dec 2020 - present).
+- General director of health information and communication systems (2019 - dec 2020).
 - Software Architecture Director (2016-2019) Ministry of Health.
 - Head. of the software engineering department (2015-2016) Ministry of Health.
 
