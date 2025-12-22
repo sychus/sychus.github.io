@@ -3,29 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hugo Héctor Fernández - CV</title>
+    <meta name="description" content="Hugo Héctor Fernández - Senior Software Engineer with 18+ years of experience in software development">
+    <title>Hugo Héctor Fernández - Senior Software Engineer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Print Button -->
     <div class="print-container">
-        <button class="print-button" onclick="window.print()">
+        <button class="print-button" onclick="window.print()" aria-label="Export to PDF">
             <i class="fas fa-file-pdf"></i> Exportar a PDF
         </button>
     </div>
 
     <div class="container">
         <!-- Header Section -->
-        <header class="header">
+        <header class="header fade-in">
             <div class="header-content">
                 <div class="header-left">
                     <h1 class="name">Hugo Héctor Fernández</h1>
-                    <h2 class="title">Senior Sofware Engineer</h2>
-                    <p>I have over 18+ years of experience in software development, with the last 11 years focused on health informatics. Throughout my career, I have worked with a wide range of technologies across different domains. I am a proactive professional with a passion for my work, and I believe I bring strong leadership qualities to software engineering teams.</p>
+                    <h2 class="title">Senior Software Engineer</h2>
+                    <p class="intro">I have over 18+ years of experience in software development, with the last 11 years focused on health informatics. Throughout my career, I have worked with a wide range of technologies across different domains. I am a proactive professional with a passion for my work, and I believe I bring strong leadership qualities to software engineering teams.</p>
                 </div>
                 <div class="header-right">
-                    <h2 class="contact-title"> Contact Info </h2>
-                    <!-- Datos de Contacto -->
+                    <h3 class="contact-title">Contact Info</h3>
+                    
+                    <!-- Contact Information -->
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -41,15 +58,15 @@
                         </div>
                     </div>
         
-                    <!-- Redes Sociales -->
+                    <!-- Social Links -->
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fab fa-linkedin"></i>
-                            <a href="https://www.linkedin.com/in/hhfernandez/" target="_blank">linkedin.com/in/hhfernandez</a>
+                            <a href="https://www.linkedin.com/in/hhfernandez/" target="_blank" rel="noopener noreferrer">linkedin.com/in/hhfernandez</a>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-github"></i>
-                            <a href="https://github.com/sychus" target="_blank">github.com/sychus</a>
+                            <a href="https://github.com/sychus" target="_blank" rel="noopener noreferrer">github.com/sychus</a>
                         </div>
                     </div>
                 </div>
@@ -61,19 +78,19 @@
             <!-- Left Column -->
             <div class="left-column">
                 <!-- Experience Section -->
-                <section class="section">
+                <section class="section fade-in">
                     <h3 class="section-title"><i class="fas fa-briefcase"></i> Experience</h3>
                     
                     <div class="experience-item">
                         <h4 class="experience-title">Senior Software Engineer / Tech Lead</h4>
-                        <div class="experience-company">Blackthorn </div>
-                        <div class="experience-company-location">
+                        <div class="experience-company">Blackthorn</div>
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             New York, United States
                         </div> 
                         <div class="experience-date">2022 - Present</div>
                         <ul class="experience-description">
-                            <li>Web application development using Angular, Node.js, and MongoDB and PostgreSQL</li>
+                            <li>Web application development using Angular, Node.js, MongoDB and PostgreSQL</li>
                             <li>Implementation of technological solutions to improve customers processes</li>
                             <li>Maintenance and optimization of existing systems</li>
                             <li>Collaboration with multidisciplinary teams for project development</li>
@@ -83,117 +100,117 @@
                     <div class="experience-item">
                         <h4 class="experience-title">Adjunct Professor, Department of Computer Engineer</h4>
                         <div class="experience-company">Universidad Nacional del Comahue</div>
-                        <div class="experience-company-location">
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             Neuquén, Argentina
                         </div> 
                         <div class="experience-date">2014 - 2023</div>
                         <ul class="experience-description">
-                            <li>Taught undergraduate courses in Introduction to Systems Administration and Systems Administration.</li>
-                            <li>Developed and delivered course materials, including lectures, assignments, and practical exercises on system installation, configuration, and management.</li>
-                            <li>Provided hands-on labs focusing on server management, network administration, and security protocols.</li>
-                            <li>Assisted students in understanding and applying concepts such as operating systems, hardware architecture, networking, and database management.</li>
-                            <li>Evaluated student performance through assignments, exams, and practical projects, providing feedback and guidance for improvement.</li>
-                            <li>Supported students during office hours, offering individual consultations to clarify course content and address technical challenges.</li>
-                            <li>Integrated industry-standard tools and practices into the curriculum, ensuring students were prepared for real-world systems administration tasks.</li>
-                            <li>Fostered an interactive learning environment, encouraging collaboration and problem-solving among students.</li>
-                            <li>Contributed to course development, updating and enhancing syllabi to reflect current trends and technological advancements in systems administration.</li>
-                            <li>Collaborated with faculty and staff to maintain and improve course quality and student satisfaction.</li>
-                            
+                            <li>Taught undergraduate courses in Introduction to Systems Administration and Systems Administration</li>
+                            <li>Developed and delivered course materials, including lectures, assignments, and practical exercises on system installation, configuration, and management</li>
+                            <li>Provided hands-on labs focusing on server management, network administration, and security protocols</li>
+                            <li>Assisted students in understanding and applying concepts such as operating systems, hardware architecture, networking, and database management</li>
+                            <li>Evaluated student performance through assignments, exams, and practical projects, providing feedback and guidance for improvement</li>
+                            <li>Supported students during office hours, offering individual consultations to clarify course content and address technical challenges</li>
+                            <li>Integrated industry-standard tools and practices into the curriculum, ensuring students were prepared for real-world systems administration tasks</li>
+                            <li>Fostered an interactive learning environment, encouraging collaboration and problem-solving among students</li>
+                            <li>Contributed to course development, updating and enhancing syllabi to reflect current trends and technological advancements in systems administration</li>
+                            <li>Collaborated with faculty and staff to maintain and improve course quality and student satisfaction</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <h4 class="experience-title">Senior Software Engineer</h4>
                         <div class="experience-company">BairesDev</div>
-                        <div class="experience-company-location">
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             California, United States
                         </div> 
                         <div class="experience-date">2021 - 2022</div>
                         <ul class="experience-description">
-                            During my time at BairesDev, I was part of the delivery team, working remotely for Design Interactive Inc. I contributed to the XMentor team in the development of both web and mobile software apps.
+                            <li>During my time at BairesDev, I was part of the delivery team, working remotely for Design Interactive Inc. I contributed to the XMentor team in the development of both web and mobile software apps</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <h4 class="experience-title">Senior Software Engineer / Tech Leader</h4>
                         <div class="experience-company">Ministry of Health</div>
-                        <div class="experience-company-location">
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             Neuquén, Argentina
                         </div> 
                         <div class="experience-date">2020 - 2021</div>
                         <ul class="experience-description">
-                            <li>Led the software development team in adopting best practices, including Clean Code principles, agile methodologies, and continuous integration.</li>
-                            <li>Ensured high code quality, maintainability, and scalability through mentoring, code reviews, and architectural guidance.</li>
-                            <li>Collaborated closely with stakeholders to translate healthcare needs into technical solutions, improving the efficiency and reliability of critical public health systems.</li>
-                            <li>Acted as a technical reference for the team, promoting innovation, best practices, and a culture of continuous improvement.</li>
+                            <li>Led the software development team in adopting best practices, including Clean Code principles, agile methodologies, and continuous integration</li>
+                            <li>Ensured high code quality, maintainability, and scalability through mentoring, code reviews, and architectural guidance</li>
+                            <li>Collaborated closely with stakeholders to translate healthcare needs into technical solutions, improving the efficiency and reliability of critical public health systems</li>
+                            <li>Acted as a technical reference for the team, promoting innovation, best practices, and a culture of continuous improvement</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <h4 class="experience-title">General Director</h4>
                         <div class="experience-company">Ministry of Health</div>
-                        <div class="experience-company-location">
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             Neuquén, Argentina
                         </div> 
                         <div class="experience-date">2019 - 2020</div>
                         <ul class="experience-description">
-                            <li>Provided strategic leadership over technical support, networking, infrastructure, and software development teams.</li>
-                            <li>Partnered with the Minister of Health to drive technology initiatives aligned with provincial healthcare strategies.</li>
-                            <li>Directed critical projects such as COVID-19 vaccination software development and integration with national systems.</li>
-                            <li>Led the expansion of the provincial healthcare connectivity network in collaboration with ARSAT.</li>
-                            <li>Modernized hospital information systems across the province, enhancing operational efficiency and healthcare delivery.</li>
-                            <li>Delivered rapid and effective technological solutions during the COVID-19 pandemic to strengthen public health services.</li>
+                            <li>Provided strategic leadership over technical support, networking, infrastructure, and software development teams</li>
+                            <li>Partnered with the Minister of Health to drive technology initiatives aligned with provincial healthcare strategies</li>
+                            <li>Directed critical projects such as COVID-19 vaccination software development and integration with national systems</li>
+                            <li>Led the expansion of the provincial healthcare connectivity network in collaboration with ARSAT</li>
+                            <li>Modernized hospital information systems across the province, enhancing operational efficiency and healthcare delivery</li>
+                            <li>Delivered rapid and effective technological solutions during the COVID-19 pandemic to strengthen public health services</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
-                        <h4 class="experience-title">Head of Sofware Engineer Department</h4>
+                        <h4 class="experience-title">Head of Software Engineer Department</h4>
                         <div class="experience-company">Ministry of Health</div>
-                        <div class="experience-company-location">
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             Neuquén, Argentina
                         </div> 
                         <div class="experience-date">2015 - 2020</div>
                         <ul class="experience-description">
-                            <li>Led the Software Engineering Department, overseeing the design, development, and maintenance of critical healthcare information systems.</li>
-                            <li>Defined and implemented software development standards, ensuring regulatory compliance, data security, and interoperability across healthcare platforms.</li>
-                            <li>Managed cross-functional teams delivering digital solutions for clinical management, patient tracking, and public health reporting.</li>
-                            <li>Collaborated with healthcare professionals and government stakeholders to translate medical and administrative needs into scalable software solutions.</li>
-                            <li>Promoted agile methodologies and continuous delivery practices to accelerate the development of high-impact healthcare applications.</li>
-                            <li>Drove innovation initiatives to modernize legacy systems, integrate with national health platforms, and improve patient care through digital transformation.</li>
-                            <li>Oversaw quality assurance processes to maintain high reliability and performance standards in mission-critical healthcare software.</li>
+                            <li>Led the Software Engineering Department, overseeing the design, development, and maintenance of critical healthcare information systems</li>
+                            <li>Defined and implemented software development standards, ensuring regulatory compliance, data security, and interoperability across healthcare platforms</li>
+                            <li>Managed cross-functional teams delivering digital solutions for clinical management, patient tracking, and public health reporting</li>
+                            <li>Collaborated with healthcare professionals and government stakeholders to translate medical and administrative needs into scalable software solutions</li>
+                            <li>Promoted agile methodologies and continuous delivery practices to accelerate the development of high-impact healthcare applications</li>
+                            <li>Drove innovation initiatives to modernize legacy systems, integrate with national health platforms, and improve patient care through digital transformation</li>
+                            <li>Oversaw quality assurance processes to maintain high reliability and performance standards in mission-critical healthcare software</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
-                        <h4 class="experience-title">Senior Sofware Engineer</h4>
+                        <h4 class="experience-title">Senior Software Engineer</h4>
                         <div class="experience-company">Hospital Dr. Castro Rendón</div>
-                        <div class="experience-company-location">
+                        <div class="experience-location">
                             <i class="fas fa-map-marker-alt"></i>
                             Neuquén, Argentina
                         </div> 
                         <div class="experience-date">2010 - 2015</div>
                         <ul class="experience-description">
-                            <li>Developed and maintained healthcare software solutions to support hospital operations and patient management.</li>
-                            <li>Collaborated with multidisciplinary teams to gather requirements and deliver functional, user-centered applications.</li>
-                            <li>Implemented software enhancements to improve clinical workflows, administrative processes, and data reporting.</li>
-                            <li>Ensured high standards of code quality, system security, and performance in all developed applications.</li>
-                            <li>Participated in the integration of hospital systems with provincial and national healthcare networks.</li>
-                            <li>Contributed to technical problem-solving and continuous improvement initiatives within the hospital’s IT department.</li>
+                            <li>Developed and maintained healthcare software solutions to support hospital operations and patient management</li>
+                            <li>Collaborated with multidisciplinary teams to gather requirements and deliver functional, user-centered applications</li>
+                            <li>Implemented software enhancements to improve clinical workflows, administrative processes, and data reporting</li>
+                            <li>Ensured high standards of code quality, system security, and performance in all developed applications</li>
+                            <li>Participated in the integration of hospital systems with provincial and national healthcare networks</li>
+                            <li>Contributed to technical problem-solving and continuous improvement initiatives within the hospital's IT department</li>
                         </ul>
                     </div>
                 </section>
 
                 <!-- Projects Section -->
-                <section class="section">
+                <section class="section fade-in">
                     <h3 class="section-title"><i class="fas fa-code"></i> Key Projects</h3>
                     
                     <div class="project-item">
                         <div class="project-title">
+                            <i class="fas fa-hospital"></i>
                             <span>Public Health Neuquén: Andes</span>
                         </div>
                         <p class="project-description">ANDES is a digital platform designed for patients and healthcare teams, enabling secure and efficient access and management of health data. It serves as the technological interface for the HUDS (Unified Digital Health History), a collection of digitized health records from both public and private healthcare providers. The platform follows international standards to structure health information.</p>
@@ -201,68 +218,69 @@
 
                     <div class="project-item">
                         <div class="project-title">
+                            <i class="fas fa-vr-cardboard"></i>
                             <span>Design Interactive: Xmentor</span>
                         </div>
-                        <p class="project-description">
-                            Xmentor is an Extended Reality (XR) training platform developed by Design Interactive, designed to deliver immersive, scalable, and cost-effective training solutions for healthcare and industrial environments. It leverages Augmented Reality (AR) and Virtual Reality (VR) to enhance learning, provide real-time procedure guidance, facilitate remote collaboration, and improve overall training outcomes across mobile and web platforms.
-                        </p>
+                        <p class="project-description">Xmentor is an Extended Reality (XR) training platform developed by Design Interactive, designed to deliver immersive, scalable, and cost-effective training solutions for healthcare and industrial environments. It leverages Augmented Reality (AR) and Virtual Reality (VR) to enhance learning, provide real-time procedure guidance, facilitate remote collaboration, and improve overall training outcomes across mobile and web platforms.</p>
                     </div>
+
                     <div class="project-item">
                         <div class="project-title">
+                            <i class="fas fa-credit-card"></i>
                             <span>Blackthorn: Payments and Events</span>
                         </div>
                         <p class="project-description">Blackthorn is a comprehensive payments and events management platform built to streamline billing, invoicing, event registration, and fundraising processes. It provides scalable and secure solutions for organizations to manage their financial and event operations seamlessly, offering deep integration with Salesforce and other platforms. The platform enables real-time payment processing, subscription management, and event coordination to enhance the user experience and operational efficiency.</p>
-                    
+                    </div>
                 </section>
             </div>
 
             <!-- Right Column -->
             <div class="right-column">
                 <!-- Skills Section -->
-                <section class="section">
+                <section class="section fade-in">
                     <h3 class="section-title"><i class="fas fa-laptop-code"></i> Skills</h3>
                     
-                    <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Programming Languages</h4>
+                    <h4 class="skill-category">Programming Languages</h4>
                     <div class="skills-container">
-                        <span class="skill highlighted">JavaScript</span>
-                        <span class="skill highlighted">TypeScript</span>
-                        <span class="skill highlighted">HTML5</span>
-                        <span class="skill highlighted">CSS3</span>
-                        <span class="skill highlighted">SQL</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">TypeScript</span>
+                        <span class="skill">HTML5</span>
+                        <span class="skill">CSS3</span>
+                        <span class="skill">SQL</span>
                     </div>
                 
-                    <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Frameworks & Libraries</h4>
+                    <h4 class="skill-category">Frameworks & Libraries</h4>
                     <div class="skills-container">
-                        <span class="skill highlighted">Angular</span>
-                        <span class="skill highlighted">Node.js</span>
-                        <span class="skill highlighted">Express</span>
-                        <span class="skill highlighted">Redux</span>
-                        <span class="skill highlighted">Bootstrap</span>
-                        <span class="skill highlighted">Tailwind CSS</span>
+                        <span class="skill">Angular</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Express</span>
+                        <span class="skill">Redux</span>
+                        <span class="skill">Bootstrap</span>
+                        <span class="skill">Tailwind CSS</span>
                     </div>
                 
-                    <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Tools & Platforms</h4>
+                    <h4 class="skill-category">Tools & Platforms</h4>
                     <div class="skills-container">
-                        <span class="skill highlighted">Git</span>
-                        <span class="skill highlighted">GitHub</span>
-                        <span class="skill highlighted">VS Code</span>
-                        <span class="skill highlighted">Aws</span>
-                        <span class="skill highlighted">Docker</span>
-                        <span class="skill highlighted">Jira | Microsft Devops</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">GitHub</span>
+                        <span class="skill">VS Code</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">Docker</span>
+                        <span class="skill">Jira</span>
+                        <span class="skill">Microsoft DevOps</span>
                     </div>
                 
-                    <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Databases</h4>
+                    <h4 class="skill-category">Databases</h4>
                     <div class="skills-container">
-                        <span class="skill highlighted">MongoDB</span>
-                        <span class="skill highlighted">PostgreSQL</span>
-                        <span class="skill highlighted">MySQL</span>
-                        <span class="skill highlighted">Firebase</span>
+                        <span class="skill">MongoDB</span>
+                        <span class="skill">PostgreSQL</span>
+                        <span class="skill">MySQL</span>
+                        <span class="skill">Firebase</span>
                     </div>
                 </section>
-                
 
                 <!-- Education Section -->
-                <section class="section">
+                <section class="section fade-in">
                     <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
                     
                     <div class="education-item">
@@ -277,8 +295,9 @@
                         <div class="education-date">1999 - 2006</div>
                     </div>
                 </section>
+
                 <!-- Languages Section -->
-                <section class="section">
+                <section class="section fade-in">
                     <h3 class="section-title"><i class="fas fa-language"></i> Languages</h3>
                     
                     <ul class="languages-list">
@@ -293,9 +312,8 @@
                     </ul>
                 </section>
 
-
                 <!-- Certifications Section -->
-                <section class="section">
+                <section class="section fade-in">
                     <h3 class="section-title"><i class="fas fa-certificate"></i> Certifications</h3>
                     
                     <ul class="certifications-list">
@@ -304,7 +322,7 @@
                             <span>2024</span>
                         </li>
                         <li>
-                            <span>Hl7 Fhir Intermediate Course</span>
+                            <span>HL7 FHIR Intermediate Course</span>
                             <span>2021</span>
                         </li>
                         <li>
@@ -312,7 +330,7 @@
                             <span>2019</span>
                         </li>
                         <li>
-                            <span>Hl7 Fhir Fundamentals Course</span>
+                            <span>HL7 FHIR Fundamentals Course</span>
                             <span>2019</span>
                         </li>
                         <li>
@@ -364,37 +382,25 @@
                             <span>2013</span>
                         </li>
                     </ul>
-                    
                 </section>
 
-<!-- Interests Section -->
-<section class="section">
-    <h3 class="section-title"><i class="fas fa-heart"></i> Interests</h3>
-    
-    <div class="skills-container">
-        <span class="skill">Software Architecture</span>
-        <span class="skill">Web Development</span>
-        <span class="skill">Mobile Development</span>
-        <span class="skill">New Technologies</span>
-        <span class="skill">Agile Methodologies</span>
-    </div>
-</section>
-
+                <!-- Interests Section -->
+                <section class="section fade-in">
+                    <h3 class="section-title"><i class="fas fa-heart"></i> Interests</h3>
+                    
+                    <div class="skills-container">
+                        <span class="skill">Software Architecture</span>
+                        <span class="skill">Web Development</span>
+                        <span class="skill">Mobile Development</span>
+                        <span class="skill">New Technologies</span>
+                        <span class="skill">Agile Methodologies</span>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
 
-    <div class="print-container">
-        <button class="print-button" onclick="window.print()">
-            <i class="fas fa-file-pdf"></i> Exportar a PDF
-        </button>
-    </div>
-
-    <script>
-        // You can add any JavaScript functionality here if needed
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('CV template loaded successfully!');
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
