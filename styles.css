@@ -187,6 +187,49 @@ body::before {
 }
 
 /* ===================================
+   BACK HOME BUTTON
+   =================================== */
+.back-home-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.back-home-button {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    text-decoration: none;
+}
+
+.back-home-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--accent-primary);
+}
+
+.back-home-button:active {
+    transform: translateY(-1px);
+}
+
+.back-home-button i {
+    font-size: 1.1rem;
+}
+
+/* ===================================
    CONTAINER & LAYOUT
    =================================== */
 .container {
