@@ -193,12 +193,13 @@ body::before {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 999;
+    z-index: 10000;
 }
 
 .back-home-button {
     background: var(--bg-card);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--text-primary);
     border: 2px solid var(--border-color);
     padding: 12px 24px;
@@ -208,11 +209,13 @@ body::before {
     cursor: pointer;
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: var(--font-body);
     text-decoration: none;
+    visibility: visible;
+    opacity: 1;
 }
 
 .back-home-button:hover {
