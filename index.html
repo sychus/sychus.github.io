@@ -3,362 +3,633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hugo Héctor Fernández - Senior Software Engineer, Developer, Tech Enthusiast">
-    <title>Hugo Héctor Fernández - Developer Profile</title>
-    
-    <!-- Google Fonts -->
+    <meta name="description" content="Hugo Héctor Fernández - Senior Software Engineer | 18+ years building the future with code">
+    <title>hugo@portfolio ~ $</title>
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Styles -->
+
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="grid-overlay"></div>
-        <div class="particles" id="particles"></div>
+    <!-- ========== BOOT SCREEN ========== -->
+    <div class="boot-screen" id="bootScreen">
+        <div class="boot-content" id="bootContent"></div>
+        <div class="boot-cursor">_</div>
     </div>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-    </button>
+    <!-- ========== SCANLINES OVERLAY ========== -->
+    <div class="scanlines" aria-hidden="true"></div>
 
-    <!-- Terminal Window -->
-    <div class="terminal-container">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <span class="terminal-btn close"></span>
-                <span class="terminal-btn minimize"></span>
-                <span class="terminal-btn maximize"></span>
-            </div>
-            <div class="terminal-title">sychus@code:~$</div>
-        </div>
-        <div class="terminal-body">
-            <div class="terminal-line">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-command" id="typing-text"></span>
-                <span class="terminal-cursor">█</span>
-            </div>
-        </div>
-    </div>
+    <!-- ========== BACKGROUND CANVAS ========== -->
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="profile-image-container">
-                    <div class="profile-image-wrapper">
-                        <img src="assets/hugo.jpeg" alt="Hugo Héctor Fernández" class="profile-image" id="profileImage" onerror="this.src='https://via.placeholder.com/300x300/667eea/ffffff?text=HHF'">
-                        <div class="profile-image-glow"></div>
-                        <div class="status-indicator"></div>
+    <!-- ========== TOP NAV BAR (tmux-style) ========== -->
+    <nav class="nav-bar" id="navBar">
+        <div class="nav-left">
+            <span class="nav-indicator"></span>
+            <span class="nav-user">hugo</span><span class="nav-at">@</span><span class="nav-host">dev</span>
+            <span class="nav-colon">:</span>
+            <span class="nav-path">~/portfolio</span>
+            <span class="nav-branch"><i class="fas fa-code-branch"></i> main</span>
+        </div>
+        <div class="nav-tabs" id="navTabs">
+            <a href="#hero" class="nav-tab active" data-section="hero"><span class="tab-index">0</span>~</a>
+            <a href="#about" class="nav-tab" data-section="about"><span class="tab-index">1</span>about</a>
+            <a href="#journey" class="nav-tab" data-section="journey"><span class="tab-index">2</span>journey</a>
+            <a href="#skills" class="nav-tab" data-section="skills"><span class="tab-index">3</span>skills</a>
+            <a href="#projects" class="nav-tab" data-section="projects"><span class="tab-index">4</span>projects</a>
+            <a href="#contact" class="nav-tab" data-section="contact"><span class="tab-index">5</span>contact</a>
+        </div>
+        <div class="nav-right">
+            <span class="nav-time" id="navTime"></span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content" id="mainContent">
+
+        <!-- ===== HERO: NEOFETCH ===== -->
+        <section id="hero" class="section-hero">
+            <div class="terminal-window hero-terminal">
+                <div class="terminal-chrome">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">neofetch</span>
+                    <div class="terminal-actions">
+                        <span class="terminal-action"><i class="fas fa-minus"></i></span>
+                        <span class="terminal-action"><i class="fas fa-square"></i></span>
+                        <span class="terminal-action"><i class="fas fa-times"></i></span>
                     </div>
                 </div>
-                
-                <div class="hero-text">
-                    <h1 class="hero-name">
-                        
-                        <span class="name-text">Hugo Héctor Fernández</span>
-                    </h1>
-                    <div class="hero-title">
-                        <span class="title-label">const</span>
-                        <span class="title-var">role</span>
-                        <span class="title-operator">=</span>
-                        <span class="title-value">'Senior Software Engineer'</span>
-                        <span class="title-semicolon">;</span>
-                    </div>
-                    <p class="hero-description">
-                        // 18+ years transforming ideas into code<br>
-                        // Specialized in Health Informatics<br>
-                        // Passionate about software architecture and new technologies
-                    </p>
-                    
-                    <div class="hero-cta">
-                        <a href="cv.html" class="cta-button primary">
-                            <i class="fas fa-file-alt"></i>
-                            <span>View Full CV</span>
-                        </a>
-                        <a href="#about" class="cta-button secondary">
-                            <i class="fas fa-user"></i>
-                            <span>About Me</span>
-                        </a>
+                <div class="terminal-body">
+                    <div class="neofetch-layout">
+                        <div class="neofetch-left">
+                            <pre class="ascii-art" aria-hidden="true">
+ _   _   _   _   _____
+| | | | | | | | |  ___|
+| |_| | | |_| | | |_
+|  _  | |  _  | |  _|
+|_| |_| |_| |_| |_|
+                            </pre>
+                            <div class="profile-frame">
+                                <img src="assets/hugo.jpeg" alt="Hugo Héctor Fernández" class="profile-image" id="profileImage">
+                                <div class="profile-status"></div>
+                            </div>
+                        </div>
+                        <div class="neofetch-right">
+                            <div class="nf-header">
+                                <span class="nf-user">hugo</span><span class="nf-at">@</span><span class="nf-host">portfolio</span>
+                            </div>
+                            <div class="nf-separator">──────────────────────</div>
+                            <div class="nf-line"><span class="nf-key">OS</span><span class="nf-value">Developer v18.0 LTS</span></div>
+                            <div class="nf-line"><span class="nf-key">Host</span><span class="nf-value">Neuquén, Argentina</span></div>
+                            <div class="nf-line"><span class="nf-key">Kernel</span><span class="nf-value">Senior Software Engineer</span></div>
+                            <div class="nf-line"><span class="nf-key">Uptime</span><span class="nf-value">18+ years</span></div>
+                            <div class="nf-line"><span class="nf-key">Packages</span><span class="nf-value">50+ projects deployed</span></div>
+                            <div class="nf-line"><span class="nf-key">Shell</span><span class="nf-value">TypeScript / JavaScript</span></div>
+                            <div class="nf-line"><span class="nf-key">Resolution</span><span class="nf-value">Full Stack</span></div>
+                            <div class="nf-line"><span class="nf-key">DE</span><span class="nf-value">VS Code</span></div>
+                            <div class="nf-line"><span class="nf-key">WM</span><span class="nf-value">Angular + Node.js</span></div>
+                            <div class="nf-line"><span class="nf-key">Terminal</span><span class="nf-value">Docker + AWS</span></div>
+                            <div class="nf-line"><span class="nf-key">CPU</span><span class="nf-value">Clean Code Architecture</span></div>
+                            <div class="nf-line"><span class="nf-key">Memory</span><span class="nf-value">11y Health Informatics</span></div>
+                            <div class="nf-empty"></div>
+                            <div class="color-blocks">
+                                <span class="cb" style="--cb-color: #ff5f56"></span>
+                                <span class="cb" style="--cb-color: #ffbd2e"></span>
+                                <span class="cb" style="--cb-color: #27c93f"></span>
+                                <span class="cb" style="--cb-color: #00d4ff"></span>
+                                <span class="cb" style="--cb-color: #a855f7"></span>
+                                <span class="cb" style="--cb-color: #ff6b9d"></span>
+                                <span class="cb" style="--cb-color: #00ff9f"></span>
+                                <span class="cb" style="--cb-color: #f59e0b"></span>
+                            </div>
+                            <div class="color-blocks dim">
+                                <span class="cb" style="--cb-color: #992f2c"></span>
+                                <span class="cb" style="--cb-color: #99711b"></span>
+                                <span class="cb" style="--cb-color: #177825"></span>
+                                <span class="cb" style="--cb-color: #007f99"></span>
+                                <span class="cb" style="--cb-color: #653399"></span>
+                                <span class="cb" style="--cb-color: #99405e"></span>
+                                <span class="cb" style="--cb-color: #00995f"></span>
+                                <span class="cb" style="--cb-color: #935e07"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="cv.html" class="cta-btn primary">
+                    <span class="cta-prompt">$</span> view cv.pdf
+                    <span class="cta-cursor">_</span>
+                </a>
+                <a href="#about" class="cta-btn secondary">
+                    <span class="cta-prompt">$</span> cd ./about
+                    <span class="cta-cursor">_</span>
+                </a>
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- ===== ABOUT: README.md ===== -->
         <section id="about" class="content-section">
-            <div class="section-header">
-                <span class="section-number">01.</span>
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
+            <div class="section-command">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">cat README.md</span>
             </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-paragraph">
-                        I am a <span class="highlight">Senior Software Engineer</span> with over 18 years of experience in software development, 
-                        specialized in <span class="highlight">Health Informatics</span> for the last 11 years. My passion for technology 
-                        goes beyond code: I love designing scalable architectures, leading teams, and creating solutions that truly 
+
+            <div class="terminal-window">
+                <div class="terminal-chrome">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">README.md - PREVIEW</span>
+                </div>
+                <div class="terminal-body readme-body">
+                    <h2 class="readme-h2"><span class="readme-hash">#</span> About Me</h2>
+                    <p class="readme-p">
+                        I am a <span class="readme-bold">Senior Software Engineer</span> with over 18 years of experience in software development,
+                        specialized in <span class="readme-bold">Health Informatics</span> for the last 11 years. My passion for technology
+                        goes beyond code: I love designing scalable architectures, leading teams, and creating solutions that truly
                         impact people's lives.
                     </p>
-                    <p class="about-paragraph">
-                        Throughout my career, I have worked on critical healthcare sector projects, from hospital systems to 
-                        public health platforms. I have led multidisciplinary teams, taught university classes, and contributed 
-                        to open source projects. My approach has always been to combine <span class="highlight">Clean Code</span>, agile methodologies 
+                    <p class="readme-p">
+                        Throughout my career, I have worked on critical healthcare sector projects, from hospital systems to
+                        public health platforms. I have led multidisciplinary teams, taught university classes, and contributed
+                        to open source projects. My approach has always been to combine <span class="readme-code">Clean Code</span>, agile methodologies
                         and industry best practices.
                     </p>
-                    <p class="about-paragraph">
-                        Currently, I work as a <span class="highlight">Tech Lead</span> at Blackthorn, where I develop modern web applications 
-                        using Angular, Node.js, and both NoSQL and relational databases. I consider myself a curious developer, always learning 
+                    <p class="readme-p">
+                        Currently, I work as a <span class="readme-bold">Tech Lead</span> at Blackthorn, where I develop modern web applications
+                        using Angular, Node.js, and both NoSQL and relational databases. I consider myself a curious developer, always learning
                         new technologies and sharing knowledge with the community.
                     </p>
                 </div>
-                
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">18+</div>
-                        <div class="stat-label">Years of Experience</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">11</div>
-                        <div class="stat-label">Years in Health Informatics</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Completed Projects</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">9</div>
-                        <div class="stat-label">Years Teaching</div>
-                    </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-count="18" data-suffix="+">
+                    <div class="stat-bar-bg"><div class="stat-bar" style="--bar-width: 90%"></div></div>
+                    <div class="stat-number"><span class="counter" data-target="18">0</span>+</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card" data-count="11">
+                    <div class="stat-bar-bg"><div class="stat-bar" style="--bar-width: 61%"></div></div>
+                    <div class="stat-number"><span class="counter" data-target="11">0</span></div>
+                    <div class="stat-label">Years in Health Informatics</div>
+                </div>
+                <div class="stat-card" data-count="50" data-suffix="+">
+                    <div class="stat-bar-bg"><div class="stat-bar" style="--bar-width: 80%"></div></div>
+                    <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
+                    <div class="stat-label">Completed Projects</div>
+                </div>
+                <div class="stat-card" data-count="9">
+                    <div class="stat-bar-bg"><div class="stat-bar" style="--bar-width: 50%"></div></div>
+                    <div class="stat-number"><span class="counter" data-target="9">0</span></div>
+                    <div class="stat-label">Years Teaching</div>
                 </div>
             </div>
         </section>
 
-        <!-- Journey Section -->
+        <!-- ===== JOURNEY: GIT LOG ===== -->
         <section id="journey" class="content-section">
-            <div class="section-header">
-                <span class="section-number">02.</span>
-                <h2 class="section-title">My Journey</h2>
-                <div class="section-line"></div>
+            <div class="section-command">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">git log --oneline --graph --all</span>
             </div>
-            
-            <div class="journey-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2022 - Present</div>
-                        <div class="timeline-role">Senior Software Engineer / Tech Lead</div>
-                        <div class="timeline-company">Blackthorn</div>
-                        <p class="timeline-description">
-                            Leading the development of modern web applications with Angular and Node.js. 
-                            Implementing technological solutions that improve customer processes 
-                            and optimizing existing systems for scalability and performance.
-                        </p>
+
+            <div class="terminal-window">
+                <div class="terminal-chrome">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
+                    <span class="terminal-title">git log</span>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2019 - 2020</div>
-                        <div class="timeline-role">General Director</div>
-                        <div class="timeline-company">Ministry of Health</div>
-                        <p class="timeline-description">
-                            Strategic leadership over technical support, networking, infrastructure 
-                            and software development teams. I directed critical projects such as COVID-19 vaccination 
-                            software and the modernization of provincial hospital systems.
-                        </p>
+                <div class="terminal-body git-log-body">
+                    <div class="git-entry">
+                        <div class="git-graph">
+                            <span class="git-node current"></span>
+                            <span class="git-line"></span>
+                        </div>
+                        <div class="git-content">
+                            <div class="git-header">
+                                <span class="git-hash">e7f3d2a</span>
+                                <span class="git-branch">(HEAD -> career)</span>
+                                <span class="git-message">Senior Software Engineer / Tech Lead</span>
+                            </div>
+                            <div class="git-meta">
+                                <span class="git-author"><i class="fas fa-building"></i> Blackthorn</span>
+                                <span class="git-date"><i class="fas fa-calendar"></i> 2022 - Present</span>
+                                <span class="git-location"><i class="fas fa-map-marker-alt"></i> New York, US</span>
+                            </div>
+                            <div class="git-diff">
+                                Leading the development of modern web applications with Angular and Node.js.
+                                Implementing technological solutions that improve customer processes
+                                and optimizing existing systems for scalability and performance.
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2015 - 2020</div>
-                        <div class="timeline-role">Head of Software Engineering Department</div>
-                        <div class="timeline-company">Ministry of Health</div>
-                        <p class="timeline-description">
-                            I led the Software Engineering Department, overseeing the design, development 
-                            and maintenance of critical health information systems. I implemented development 
-                            standards and promoted agile methodologies.
-                        </p>
+
+                    <div class="git-entry">
+                        <div class="git-graph">
+                            <span class="git-node"></span>
+                            <span class="git-line"></span>
+                        </div>
+                        <div class="git-content">
+                            <div class="git-header">
+                                <span class="git-hash">b4c9a1f</span>
+                                <span class="git-message">General Director</span>
+                            </div>
+                            <div class="git-meta">
+                                <span class="git-author"><i class="fas fa-building"></i> Ministry of Health</span>
+                                <span class="git-date"><i class="fas fa-calendar"></i> 2019 - 2020</span>
+                                <span class="git-location"><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
+                            </div>
+                            <div class="git-diff">
+                                Strategic leadership over technical support, networking, infrastructure
+                                and software development teams. Directed critical projects such as COVID-19 vaccination
+                                software and the modernization of provincial hospital systems.
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2014 - 2023</div>
-                        <div class="timeline-role">Adjunct Professor</div>
-                        <div class="timeline-company">Universidad Nacional del Comahue</div>
-                        <p class="timeline-description">
-                            I taught Systems Administration courses at the university level, developing 
-                            educational materials and fostering a collaborative learning environment. 
-                            Sharing knowledge has always been one of my passions.
-                        </p>
+
+                    <div class="git-entry">
+                        <div class="git-graph">
+                            <span class="git-node"></span>
+                            <span class="git-line"></span>
+                        </div>
+                        <div class="git-content">
+                            <div class="git-header">
+                                <span class="git-hash">8d5e2c3</span>
+                                <span class="git-message">Head of Software Engineering Department</span>
+                            </div>
+                            <div class="git-meta">
+                                <span class="git-author"><i class="fas fa-building"></i> Ministry of Health</span>
+                                <span class="git-date"><i class="fas fa-calendar"></i> 2015 - 2020</span>
+                                <span class="git-location"><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
+                            </div>
+                            <div class="git-diff">
+                                Led the Software Engineering Department, overseeing the design, development
+                                and maintenance of critical health information systems. Implemented development
+                                standards and promoted agile methodologies.
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2010 - 2015</div>
-                        <div class="timeline-role">Senior Software Engineer</div>
-                        <div class="timeline-company">Hospital Dr. Castro Rendón</div>
-                        <p class="timeline-description">
-                            I developed and maintained software solutions for hospital operations and 
-                            patient management. I participated in the integration of hospital systems 
-                            with provincial and national health networks.
-                        </p>
+
+                    <div class="git-entry">
+                        <div class="git-graph">
+                            <span class="git-node"></span>
+                            <span class="git-line"></span>
+                        </div>
+                        <div class="git-content">
+                            <div class="git-header">
+                                <span class="git-hash">a1b2c3d</span>
+                                <span class="git-message">Adjunct Professor</span>
+                            </div>
+                            <div class="git-meta">
+                                <span class="git-author"><i class="fas fa-building"></i> Universidad Nacional del Comahue</span>
+                                <span class="git-date"><i class="fas fa-calendar"></i> 2014 - 2023</span>
+                                <span class="git-location"><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
+                            </div>
+                            <div class="git-diff">
+                                Taught Systems Administration courses at the university level, developing
+                                educational materials and fostering a collaborative learning environment.
+                                Sharing knowledge has always been one of my passions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="git-entry">
+                        <div class="git-graph">
+                            <span class="git-node"></span>
+                            <span class="git-line last"></span>
+                        </div>
+                        <div class="git-content">
+                            <div class="git-header">
+                                <span class="git-hash">f9e8d7c</span>
+                                <span class="git-tag"><i class="fas fa-tag"></i> first-role</span>
+                                <span class="git-message">Senior Software Engineer</span>
+                            </div>
+                            <div class="git-meta">
+                                <span class="git-author"><i class="fas fa-building"></i> Hospital Dr. Castro Rendón</span>
+                                <span class="git-date"><i class="fas fa-calendar"></i> 2010 - 2015</span>
+                                <span class="git-location"><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
+                            </div>
+                            <div class="git-diff">
+                                Developed and maintained software solutions for hospital operations and
+                                patient management. Participated in the integration of hospital systems
+                                with provincial and national health networks.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills & Tech Section -->
+        <!-- ===== SKILLS: SYSTEM MONITOR ===== -->
         <section id="skills" class="content-section">
-            <div class="section-header">
-                <span class="section-number">03.</span>
-                <h2 class="section-title">Tech Stack</h2>
-                <div class="section-line"></div>
+            <div class="section-command">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">htop --skills</span>
             </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category-card">
-                    <div class="skill-category-icon">
-                        <i class="fas fa-code"></i>
+
+            <div class="terminal-window">
+                <div class="terminal-chrome">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
-                    <h3 class="skill-category-title">Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
+                    <span class="terminal-title">htop - skills monitor</span>
                 </div>
-                
-                <div class="skill-category-card">
-                    <div class="skill-category-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3 class="skill-category-title">Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Angular</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express</span>
-                        <span class="skill-tag">Redux</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category-card">
-                    <div class="skill-category-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="skill-category-title">Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Firebase</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category-card">
-                    <div class="skill-category-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="skill-category-title">Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Jira</span>
+                <div class="terminal-body skills-body">
+                    <div class="skills-columns">
+                        <div class="skills-col">
+                            <h3 class="skills-col-title"><i class="fas fa-code"></i> Languages</h3>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 95%; --bar-color: #f7df1e"></div></div>
+                                <span class="skill-pct">95%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">TypeScript</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 90%; --bar-color: #3178c6"></div></div>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">HTML5</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 95%; --bar-color: #e34f26"></div></div>
+                                <span class="skill-pct">95%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">CSS3</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 90%; --bar-color: #264de4"></div></div>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">SQL</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 85%; --bar-color: #00758f"></div></div>
+                                <span class="skill-pct">85%</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-col">
+                            <h3 class="skills-col-title"><i class="fas fa-layer-group"></i> Frameworks</h3>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Angular</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 92%; --bar-color: #dd0031"></div></div>
+                                <span class="skill-pct">92%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 90%; --bar-color: #68a063"></div></div>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Express</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 88%; --bar-color: #68a063"></div></div>
+                                <span class="skill-pct">88%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Redux</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 80%; --bar-color: #764abc"></div></div>
+                                <span class="skill-pct">80%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Tailwind</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 85%; --bar-color: #38bdf8"></div></div>
+                                <span class="skill-pct">85%</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-col">
+                            <h3 class="skills-col-title"><i class="fas fa-database"></i> Databases</h3>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">MongoDB</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 90%; --bar-color: #47a248"></div></div>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">PostgreSQL</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 85%; --bar-color: #336791"></div></div>
+                                <span class="skill-pct">85%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">MySQL</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 82%; --bar-color: #00758f"></div></div>
+                                <span class="skill-pct">82%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Firebase</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 75%; --bar-color: #ffca28"></div></div>
+                                <span class="skill-pct">75%</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-col">
+                            <h3 class="skills-col-title"><i class="fas fa-wrench"></i> Tools</h3>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Git</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 95%; --bar-color: #f05032"></div></div>
+                                <span class="skill-pct">95%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Docker</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 80%; --bar-color: #2496ed"></div></div>
+                                <span class="skill-pct">80%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">AWS</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 75%; --bar-color: #ff9900"></div></div>
+                                <span class="skill-pct">75%</span>
+                            </div>
+                            <div class="skill-bar-item">
+                                <span class="skill-name">Jira</span>
+                                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill: 85%; --bar-color: #0052cc"></div></div>
+                                <span class="skill-pct">85%</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" class="content-section">
+            <div class="section-command">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">ls -la ~/projects/</span>
+            </div>
+
+            <div class="projects-grid">
+                <div class="terminal-window project-card">
+                    <div class="terminal-chrome">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">andes.ts</span>
+                    </div>
+                    <div class="terminal-body project-body">
+                        <div class="project-icon"><i class="fas fa-hospital"></i></div>
+                        <h3 class="project-name">ANDES</h3>
+                        <p class="project-org">Public Health Neuquén</p>
+                        <p class="project-desc">
+                            Digital platform for patients and health teams, enabling secure and efficient access
+                            and management of health data. Technological interface for HUDS (Unified Digital Health Record)
+                            following international standards.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">HL7 FHIR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window project-card">
+                    <div class="terminal-chrome">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">xmentor.ts</span>
+                    </div>
+                    <div class="terminal-body project-body">
+                        <div class="project-icon"><i class="fas fa-vr-cardboard"></i></div>
+                        <h3 class="project-name">XMentor</h3>
+                        <p class="project-org">Design Interactive</p>
+                        <p class="project-desc">
+                            Extended Reality (XR) training platform delivering immersive, scalable training solutions
+                            for health and industrial environments. Leverages AR and VR for real-time procedural guidance
+                            and remote collaboration.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">XR/VR</span>
+                            <span class="project-tag">Mobile</span>
+                            <span class="project-tag">WebGL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window project-card">
+                    <div class="terminal-chrome">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">blackthorn.ts</span>
+                    </div>
+                    <div class="terminal-body project-body">
+                        <div class="project-icon"><i class="fas fa-credit-card"></i></div>
+                        <h3 class="project-name">Blackthorn</h3>
+                        <p class="project-org">Payments & Events</p>
+                        <p class="project-desc">
+                            Comprehensive payment and event management platform optimizing billing, invoicing,
+                            event registration, and fundraising. Deep integration with Salesforce for real-time
+                            payment processing and subscription management.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">Salesforce</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT: CURL API ===== -->
         <section id="contact" class="content-section">
-            <div class="section-header">
-                <span class="section-number">04.</span>
-                <h2 class="section-title">Contact</h2>
-                <div class="section-line"></div>
+            <div class="section-command">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">curl -X GET https://api.hugo.dev/contact</span>
             </div>
-            
-            <div class="contact-grid">
-                <a href="mailto:hugofernandeznqn@gmail.com" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+
+            <div class="terminal-window">
+                <div class="terminal-chrome">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
-                    <div class="contact-info">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">hugofernandeznqn@gmail.com</div>
-                    </div>
-                </a>
-                
-                <a href="tel:+542994271675" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-info">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">+54 299-427-1675</div>
-                    </div>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/hhfernandez/" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="contact-info">
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value">linkedin.com/in/hhfernandez</div>
-                    </div>
-                </a>
-                
-                <a href="https://github.com/sychus" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="contact-info">
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-value">github.com/sychus</div>
-                    </div>
-                </a>
+                    <span class="terminal-title">API Response - 200 OK</span>
+                </div>
+                <div class="terminal-body api-body">
+                    <pre class="api-response"><span class="json-brace">{</span>
+  <span class="json-key">"status"</span><span class="json-colon">:</span> <span class="json-number">200</span><span class="json-comma">,</span>
+  <span class="json-key">"message"</span><span class="json-colon">:</span> <span class="json-string">"Let's build something together"</span><span class="json-comma">,</span>
+  <span class="json-key">"data"</span><span class="json-colon">:</span> <span class="json-brace">{</span>
+    <span class="json-key">"email"</span><span class="json-colon">:</span> <a href="mailto:hugofernandeznqn@gmail.com" class="json-link"><span class="json-string">"hugofernandeznqn@gmail.com"</span></a><span class="json-comma">,</span>
+    <span class="json-key">"phone"</span><span class="json-colon">:</span> <a href="tel:+542994271675" class="json-link"><span class="json-string">"+54 299-427-1675"</span></a><span class="json-comma">,</span>
+    <span class="json-key">"linkedin"</span><span class="json-colon">:</span> <a href="https://www.linkedin.com/in/hhfernandez/" target="_blank" rel="noopener noreferrer" class="json-link"><span class="json-string">"linkedin.com/in/hhfernandez"</span></a><span class="json-comma">,</span>
+    <span class="json-key">"github"</span><span class="json-colon">:</span> <a href="https://github.com/sychus" target="_blank" rel="noopener noreferrer" class="json-link"><span class="json-string">"github.com/sychus"</span></a><span class="json-comma">,</span>
+    <span class="json-key">"location"</span><span class="json-colon">:</span> <span class="json-string">"Neuquén, Argentina"</span>
+  <span class="json-brace">}</span>
+<span class="json-brace">}</span></pre>
+                </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p class="footer-text">
-                    <span class="code-comment">//</span> Built with 
-                    <span class="code-keyword">passion</span> and 
-                    <span class="code-keyword">code</span>
-                </p>
-                <p class="footer-copyright">
-                    &copy; 2026 Hugo Héctor Fernández. All rights reserved.
-                </p>
+    </main>
+
+    <!-- ========== VIM STATUS BAR ========== -->
+    <footer class="vim-bar" id="vimBar">
+        <div class="vim-left">
+            <span class="vim-mode">NORMAL</span>
+            <span class="vim-file">portfolio.html</span>
+            <span class="vim-modified">[+]</span>
+        </div>
+        <div class="vim-center">
+            <span class="vim-encoding">utf-8</span>
+            <span class="vim-type">html</span>
+        </div>
+        <div class="vim-right">
+            <span class="vim-percentage" id="vimPct">Top</span>
+            <span class="vim-position" id="vimPos">1:1</span>
+        </div>
+    </footer>
+
+    <!-- ========== INTERACTIVE TERMINAL DRAWER ========== -->
+    <div class="terminal-drawer" id="terminalDrawer">
+        <div class="drawer-handle" id="drawerHandle">
+            <span class="drawer-label"><i class="fas fa-terminal"></i> TERMINAL</span>
+            <span class="drawer-toggle" id="drawerToggle"><i class="fas fa-chevron-up"></i></span>
+        </div>
+        <div class="drawer-content" id="drawerContent">
+            <div class="drawer-output" id="drawerOutput">
+                <div class="drawer-line">Welcome to hugo.dev interactive terminal. Type <span class="cmd-highlight">help</span> for commands.</div>
+                <div class="drawer-line"><span style="color: var(--text-dim)">Tip: Tab to autocomplete, Arrow Up/Down for history</span></div>
             </div>
-        </footer>
+            <div class="drawer-input-line">
+                <span class="drawer-prompt">hugo@dev:~$</span>
+                <input type="text" class="drawer-input" id="drawerInput" autocomplete="off" spellcheck="false" placeholder="Type a command...">
+            </div>
+        </div>
     </div>
 
-    <!-- JavaScript -->
     <script src="profile.js"></script>
 </body>
 </html>
