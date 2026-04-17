@@ -608,6 +608,24 @@ section {
     background: var(--bg-2);
 }
 
+/* Copy-to-clipboard swap states */
+.btn-text-copied,
+.btn-arrow-copied { display: none; }
+
+.btn.copied .btn-text-default,
+.btn.copied .btn-arrow-default { display: none; }
+
+.btn.copied .btn-text-copied,
+.btn.copied .btn-arrow-copied { display: inline; }
+
+.btn.copied { animation: pulse-success 420ms var(--ease); }
+
+@keyframes pulse-success {
+    0%   { box-shadow: 0 0 0 0 var(--accent-dim); }
+    60%  { box-shadow: 0 0 0 8px rgba(198, 244, 50, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(198, 244, 50, 0); }
+}
+
 /* Hero portrait — circular, right column */
 .hero-portrait {
     position: relative;

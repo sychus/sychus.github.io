@@ -82,8 +82,19 @@
     /* ====== PRINT ====== */
     const initPrint = () => {
         const btn = document.getElementById('printBtn');
-        if (!btn) return;
-        btn.addEventListener('click', () => window.print());
+        if (btn) {
+            btn.addEventListener('click', () => window.print());
+        }
+
+        /* Auto-trigger print when opened with ?print=1 (from portfolio "Download CV") */
+        try {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('print') === '1') {
+                window.addEventListener('load', () => {
+                    setTimeout(() => window.print(), 600);
+                });
+            }
+        } catch (e) {}
     };
 
     /* ====== INIT ====== */

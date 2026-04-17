@@ -340,6 +340,43 @@
         items.forEach((el) => observer.observe(el));
     };
 
+    /* ====== EMAIL COPY-TO-CLIPBOARD ====== */
+    const initEmailCopy = () => {
+        const btn = document.getElementById('emailCopy');
+        if (!btn) return;
+
+        const email = btn.dataset.copy;
+        let resetTimer = null;
+
+        btn.addEventListener('click', async (e) => {
+            if (!email) return;
+            e.preventDefault();
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(email);
+                } else {
+                    /* Fallback: hidden textarea + execCommand */
+                    const ta = document.createElement('textarea');
+                    ta.value = email;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                }
+
+                btn.classList.add('copied');
+                clearTimeout(resetTimer);
+                resetTimer = setTimeout(() => btn.classList.remove('copied'), 2000);
+            } catch (err) {
+                /* Last-resort fallback — let the mailto do its thing */
+                window.location.href = btn.getAttribute('href');
+            }
+        });
+    };
+
     /* ====== FOOTER YEAR ====== */
     const initFooterYear = () => {
         const el = document.getElementById('footerYear');
@@ -357,6 +394,7 @@
         initRecoMarquee();
         initFeaturedRotator();
         initReveal();
+        initEmailCopy();
         initFooterYear();
     });
 })();
