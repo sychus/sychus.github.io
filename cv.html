@@ -3,481 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hugo Héctor Fernández - Senior Software Engineer CV | 18+ years of experience">
-    <title>hugo@cv ~ $ cat resume.md</title>
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Hugo Héctor Fernández — Senior Software Engineer Résumé. 18 years of experience, 11 in healthcare informatics.">
+    <meta name="author" content="Hugo Héctor Fernández">
+
+    <title>Hugo Héctor Fernández — Résumé</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('hhf.theme') || 'dark';
+                var l = localStorage.getItem('hhf.lang')
+                    || ((navigator.language || 'en').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+                document.documentElement.setAttribute('data-theme', t);
+                document.documentElement.setAttribute('lang', l);
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
-    <!-- ========== SCANLINES ========== -->
-    <div class="scanlines" aria-hidden="true"></div>
 
-    <!-- ========== BACKGROUND CANVAS ========== -->
-    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <!-- ============ TOP NAV ============ -->
+    <nav class="top-nav no-print" id="topNav" aria-label="Résumé navigation">
+        <a href="index.html" class="nav-brand">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Hugo H. Fernández</span>
+            <span class="nav-initials" aria-hidden="true">
+                <span data-lang-en>Portfolio</span>
+                <span data-lang-es>Portfolio</span>
+            </span>
+        </a>
 
-    <!-- ========== TOP NAV BAR ========== -->
-    <nav class="nav-bar" id="navBar">
-        <div class="nav-left">
-            <a href="index.html" class="nav-back" aria-label="Back to portfolio">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <span class="nav-indicator"></span>
-            <span class="nav-user">hugo</span><span class="nav-at">@</span><span class="nav-host">cv</span>
-            <span class="nav-colon">:</span>
-            <span class="nav-path">~/resume</span>
-        </div>
-        <div class="nav-tabs" id="navTabs">
-            <a href="#header-section" class="nav-tab active" data-section="header-section"><span class="tab-idx">0</span>profile</a>
-            <a href="#experience" class="nav-tab" data-section="experience"><span class="tab-idx">1</span>xp</a>
-            <a href="#projects-section" class="nav-tab" data-section="projects-section"><span class="tab-idx">2</span>projects</a>
-            <a href="#skills-section" class="nav-tab" data-section="skills-section"><span class="tab-idx">3</span>skills</a>
-            <a href="#education-section" class="nav-tab" data-section="education-section"><span class="tab-idx">4</span>edu</a>
-            <a href="#certs-section" class="nav-tab" data-section="certs-section"><span class="tab-idx">5</span>certs</a>
-        </div>
         <div class="nav-right">
-            <span class="nav-time" id="navTime"></span>
-            <button class="print-btn" onclick="window.print()" aria-label="Print / Export PDF">
-                <i class="fas fa-file-pdf"></i>
+            <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                <span class="lang-opt" data-lang-opt="en">EN</span>
+                <span class="lang-sep">/</span>
+                <span class="lang-opt" data-lang-opt="es">ES</span>
             </button>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
+            <button type="button" class="nav-btn" id="themeToggle" aria-label="Toggle theme">
+                <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+                </svg>
+            </button>
+            <button type="button" class="nav-btn" id="printBtn" aria-label="Print / Export PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
             </button>
         </div>
     </nav>
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <div class="cv-container">
+    <!-- ============ RESUME CONTAINER ============ -->
+    <main class="cv">
 
-        <!-- ===== HEADER ===== -->
-        <header id="header-section" class="cv-header terminal-window">
-            <div class="terminal-chrome">
-                <div class="terminal-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+        <!-- HEADER -->
+        <header class="cv-header">
+            <div class="cv-header-grid">
+                <div>
+                    <p class="cv-eyebrow">
+                        <span data-lang-en>Résumé · April 2026</span>
+                        <span data-lang-es>Currículum · Abril 2026</span>
+                    </p>
+                    <h1 class="cv-name">Hugo Héctor <span class="name-accent">Fernández.</span></h1>
+                    <h2 class="cv-role">
+                        <span data-lang-en>Senior Software Engineer <em>·</em> Tech Lead</span>
+                        <span data-lang-es>Senior Software Engineer <em>·</em> Tech Lead</span>
+                    </h2>
+                    <p class="cv-intro">
+                        <span data-lang-en>Eighteen years building software, <strong>eleven in healthcare informatics</strong>. I design scalable architectures, lead multidisciplinary teams, and deliver critical systems under real-world constraints. I believe in clean code, agile practices, and teams that grow together.</span>
+                        <span data-lang-es>Dieciocho años construyendo software, <strong>once en informática en salud</strong>. Diseño arquitecturas escalables, lidero equipos multidisciplinarios y entrego sistemas críticos bajo restricciones reales. Creo en el clean code, en las prácticas ágiles y en los equipos que crecen juntos.</span>
+                    </p>
                 </div>
-                <span class="terminal-title">cat profile.yml</span>
-            </div>
-            <div class="terminal-body header-body">
-                <div class="header-grid">
-                    <div class="header-left">
-                        <h1 class="cv-name">Hugo Héctor Fernández</h1>
-                        <h2 class="cv-title">Senior Software Engineer</h2>
-                        <p class="cv-intro">I have over 18 years of experience in software development, with the last 11 years focused on health informatics. Throughout my career, I have worked with a wide range of technologies in different domains. I am a proactive professional with a passion for my work, and I believe I bring strong leadership qualities to software engineering teams.</p>
+
+                <aside class="cv-contact">
+                    <div class="cv-contact-row">
+                        <span class="cv-contact-key" data-lang-en>Email</span>
+                        <span class="cv-contact-key" data-lang-es>Email</span>
+                        <a href="mailto:hugofernandeznqn@gmail.com" class="cv-contact-val">hugofernandeznqn@gmail.com</a>
                     </div>
-                    <div class="header-right">
-                        <div class="contact-block">
-                            <div class="contact-row">
-                                <span class="contact-key">phone</span>
-                                <span class="contact-val">+54 299-427-1675</span>
-                            </div>
-                            <div class="contact-row">
-                                <span class="contact-key">email</span>
-                                <span class="contact-val">hugofernandeznqn@gmail.com</span>
-                            </div>
-                            <div class="contact-row">
-                                <span class="contact-key">location</span>
-                                <span class="contact-val">Neuquén, Argentina</span>
-                            </div>
-                            <div class="contact-row">
-                                <span class="contact-key">linkedin</span>
-                                <a href="https://www.linkedin.com/in/hhfernandez/" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/hhfernandez</a>
-                            </div>
-                            <div class="contact-row">
-                                <span class="contact-key">github</span>
-                                <a href="https://github.com/sychus" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/sychus</a>
-                            </div>
-                        </div>
+                    <div class="cv-contact-row">
+                        <span class="cv-contact-key" data-lang-en>Phone</span>
+                        <span class="cv-contact-key" data-lang-es>Teléfono</span>
+                        <a href="tel:+542994271675" class="cv-contact-val">+54 299 427-1675</a>
                     </div>
-                </div>
+                    <div class="cv-contact-row">
+                        <span class="cv-contact-key" data-lang-en>Location</span>
+                        <span class="cv-contact-key" data-lang-es>Ubicación</span>
+                        <span class="cv-contact-val">Neuquén, Argentina</span>
+                    </div>
+                    <div class="cv-contact-row">
+                        <span class="cv-contact-key">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/hhfernandez/" target="_blank" rel="noopener noreferrer" class="cv-contact-val">linkedin.com/in/hhfernandez</a>
+                    </div>
+                    <div class="cv-contact-row">
+                        <span class="cv-contact-key">GitHub</span>
+                        <a href="https://github.com/sychus" target="_blank" rel="noopener noreferrer" class="cv-contact-val">github.com/sychus</a>
+                    </div>
+                    <div class="cv-contact-row">
+                        <span class="cv-contact-key" data-lang-en>Languages</span>
+                        <span class="cv-contact-key" data-lang-es>Idiomas</span>
+                        <span class="cv-contact-val" data-lang-en>Spanish (native) · English (advanced)</span>
+                        <span class="cv-contact-val" data-lang-es>Español (nativo) · Inglés (avanzado)</span>
+                    </div>
+                </aside>
             </div>
         </header>
 
-        <!-- ===== TWO COLUMN LAYOUT ===== -->
-        <main class="cv-main">
-            <!-- LEFT COLUMN -->
-            <div class="cv-left">
-
-                <!-- EXPERIENCE -->
-                <section id="experience" class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">git log --career</span>
-                    </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-briefcase"></i> Experience</h3>
-
-                        <div class="xp-item">
-                            <div class="xp-header">
-                                <div class="xp-dot current"></div>
-                                <div>
-                                    <h4 class="xp-role">Senior Software Engineer / Tech Lead</h4>
-                                    <div class="xp-company">Blackthorn</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> New York, US</span>
-                                        <span><i class="fas fa-calendar"></i> 2022 - Present</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Development of web applications using Angular, Node.js, MongoDB and PostgreSQL</li>
-                                <li>Implementation of technological solutions to improve client processes</li>
-                                <li>Maintenance and optimization of existing systems</li>
-                                <li>Collaboration with multidisciplinary teams for project development</li>
-                            </ul>
-                        </div>
-
-                        <div class="xp-item">
-                            <div class="xp-header">
-                                <div class="xp-dot"></div>
-                                <div>
-                                    <h4 class="xp-role">Adjunct Professor, Computer Engineering Dept.</h4>
-                                    <div class="xp-company">Universidad Nacional del Comahue</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
-                                        <span><i class="fas fa-calendar"></i> 2014 - 2023</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Taught undergraduate courses in Introduction to Systems Administration and Systems Administration</li>
-                                <li>Developed and delivered course materials, including lectures, assignments, and hands-on exercises</li>
-                                <li>Provided hands-on laboratories focused on server management, network administration, and security protocols</li>
-                                <li>Integrated industry-standard tools and practices into the curriculum</li>
-                                <li>Fostered an interactive learning environment, encouraging collaboration and problem-solving</li>
-                                <li>Contributed to course development, updating programs to reflect current trends</li>
-                            </ul>
-                        </div>
-
-                        <div class="xp-item">
-                            <div class="xp-header">
-                                <div class="xp-dot"></div>
-                                <div>
-                                    <h4 class="xp-role">Senior Software Engineer</h4>
-                                    <div class="xp-company">BairesDev</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> California, US</span>
-                                        <span><i class="fas fa-calendar"></i> 2021 - 2022</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Part of the delivery team, working remotely for Design Interactive Inc., contributing to the XMentor team in web and mobile software development</li>
-                            </ul>
-                        </div>
-
-                        <div class="xp-item">
-                            <div class="xp-header">
-                                <div class="xp-dot"></div>
-                                <div>
-                                    <h4 class="xp-role">Senior Software Engineer / Tech Leader</h4>
-                                    <div class="xp-company">Ministry of Health</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
-                                        <span><i class="fas fa-calendar"></i> 2020 - 2021</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Led the software development team in adopting Clean Code principles, agile methodologies, and CI</li>
-                                <li>Ensured high code quality, maintainability, and scalability through mentoring and code reviews</li>
-                                <li>Worked closely with stakeholders to translate health needs into technical solutions</li>
-                                <li>Promoted innovation, best practices, and a culture of continuous improvement</li>
-                            </ul>
-                        </div>
-
-                        <div class="xp-item">
-                            <div class="xp-header">
-                                <div class="xp-dot"></div>
-                                <div>
-                                    <h4 class="xp-role">General Director</h4>
-                                    <div class="xp-company">Ministry of Health</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
-                                        <span><i class="fas fa-calendar"></i> 2019 - 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Strategic leadership over technical support teams, networks, infrastructure, and software development</li>
-                                <li>Led critical projects such as COVID-19 vaccination software and integration with national systems</li>
-                                <li>Led the expansion of the provincial health connectivity network in collaboration with ARSAT</li>
-                                <li>Modernized hospital information systems, improving operational efficiency</li>
-                                <li>Delivered rapid technological solutions during the COVID-19 pandemic</li>
-                            </ul>
-                        </div>
-
-                        <div class="xp-item">
-                            <div class="xp-header">
-                                <div class="xp-dot"></div>
-                                <div>
-                                    <h4 class="xp-role">Head of Software Engineering Department</h4>
-                                    <div class="xp-company">Ministry of Health</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
-                                        <span><i class="fas fa-calendar"></i> 2015 - 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Led the Software Engineering Department, overseeing design, development, and maintenance of critical health systems</li>
-                                <li>Defined and implemented software development standards ensuring regulatory compliance</li>
-                                <li>Managed cross-functional teams that delivered digital solutions for clinical management</li>
-                                <li>Promoted agile methodologies and continuous delivery practices</li>
-                                <li>Drove innovation initiatives to modernize legacy systems and integrate with national health platforms</li>
-                            </ul>
-                        </div>
-
-                        <div class="xp-item last">
-                            <div class="xp-header">
-                                <div class="xp-dot"></div>
-                                <div>
-                                    <h4 class="xp-role">Senior Software Engineer</h4>
-                                    <div class="xp-company">Dr. Castro Rendón Hospital</div>
-                                    <div class="xp-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i> Neuquén, AR</span>
-                                        <span><i class="fas fa-calendar"></i> 2010 - 2015</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="xp-list">
-                                <li>Developed and maintained health software solutions for hospital operations and patient management</li>
-                                <li>Collaborated with multidisciplinary teams to deliver user-centered functional applications</li>
-                                <li>Implemented software improvements to enhance clinical workflows</li>
-                                <li>Participated in the integration of hospital systems with provincial and national health networks</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- PROJECTS -->
-                <section id="projects-section" class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">ls -la ~/projects/</span>
-                    </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-code"></i> Key Projects</h3>
-
-                        <div class="project-item">
-                            <div class="project-header">
-                                <i class="fas fa-hospital project-ico"></i>
-                                <span class="project-title">Public Health Neuquén: Andes</span>
-                            </div>
-                            <p class="project-desc">ANDES is a digital platform designed for patients and health teams, enabling secure and efficient access and management of health data. It serves as a technological interface for HUDS (Unified Digital Health Record), a collection of digitized health records from public and private healthcare providers. The platform follows international standards for structuring health information.</p>
-                        </div>
-
-                        <div class="project-item">
-                            <div class="project-header">
-                                <i class="fas fa-vr-cardboard project-ico"></i>
-                                <span class="project-title">Design Interactive: Xmentor</span>
-                            </div>
-                            <p class="project-desc">Xmentor is an Extended Reality (XR) training platform developed by Design Interactive, designed to deliver immersive, scalable, and cost-effective training solutions for health and industrial environments. It leverages Augmented Reality (AR) and Virtual Reality (VR) to enhance learning, provide real-time procedural guidance, facilitate remote collaboration, and improve overall training outcomes on mobile and web platforms.</p>
-                        </div>
-
-                        <div class="project-item last">
-                            <div class="project-header">
-                                <i class="fas fa-credit-card project-ico"></i>
-                                <span class="project-title">Blackthorn: Payments and Events</span>
-                            </div>
-                            <p class="project-desc">Blackthorn is a comprehensive payment and event management platform built to optimize billing, invoicing, event registration, and fundraising processes. It provides scalable and secure solutions for organizations to seamlessly manage their financial and event operations, offering deep integration with Salesforce and other platforms.</p>
-                        </div>
-                    </div>
-                </section>
+        <!-- EXPERIENCE -->
+        <section class="cv-section">
+            <div class="cv-section-header">
+                <span class="cv-section-label">01</span>
+                <h3 class="cv-section-title">
+                    <span data-lang-en>Experience</span>
+                    <span data-lang-es>Experiencia</span>
+                </h3>
             </div>
 
-            <!-- RIGHT COLUMN -->
-            <div class="cv-right">
+            <div class="cv-xp-list">
 
-                <!-- SKILLS -->
-                <section id="skills-section" class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">cat skills.json</span>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2022 — </span>
+                        <span class="cv-xp-now" data-lang-en>Present</span>
+                        <span class="cv-xp-now" data-lang-es>Actual</span>
                     </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-laptop-code"></i> Skills</h3>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role">Senior Software Engineer · Tech Lead</h4>
+                        <p class="cv-xp-org">Blackthorn <span class="cv-xp-loc">· New York, US · Remote</span></p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Lead engineering on Blackthorn Payments and Events platforms, deeply integrated with Salesforce.</li>
+                            <li data-lang-es>Lidero la ingeniería en las plataformas Blackthorn Payments y Events, con integración profunda con Salesforce.</li>
+                            <li data-lang-en>Drive architecture decisions, code review standards and cross-team technical alignment.</li>
+                            <li data-lang-es>Conduzco decisiones de arquitectura, estándares de code review y alineación técnica entre equipos.</li>
+                            <li data-lang-en>Mentor engineers and balance delivery velocity with long-term maintainability.</li>
+                            <li data-lang-es>Mentoreo ingenieros y balanceo velocidad de entrega con mantenibilidad a largo plazo.</li>
+                            <li data-lang-en>Develop with Angular, Node.js, PostgreSQL and MongoDB.</li>
+                            <li data-lang-es>Desarrollo con Angular, Node.js, PostgreSQL y MongoDB.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                        <h4 class="skill-cat">Programming Languages</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">SQL</span>
-                        </div>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2014 — 2023</span>
+                    </div>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role" data-lang-en>Adjunct Professor · Computer Engineering Dept.</h4>
+                        <h4 class="cv-xp-role" data-lang-es>Profesor Adjunto · Departamento de Ingeniería en Computación</h4>
+                        <p class="cv-xp-org">Universidad Nacional del Comahue (UNCO) <span class="cv-xp-loc">· Neuquén, AR</span></p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Taught undergraduate courses in Introduction to Systems Administration and Systems Administration.</li>
+                            <li data-lang-es>Dicté cursos de grado en Introducción a la Administración de Sistemas y Administración de Sistemas.</li>
+                            <li data-lang-en>Developed course materials including lectures, assignments and hands-on laboratory exercises.</li>
+                            <li data-lang-es>Desarrollé materiales de cátedra que incluyeron clases teóricas, trabajos prácticos y laboratorios.</li>
+                            <li data-lang-en>Ran laboratories focused on server management, network administration and security protocols.</li>
+                            <li data-lang-es>Conduje laboratorios enfocados en administración de servidores, de redes y protocolos de seguridad.</li>
+                            <li data-lang-en>Integrated industry-standard tools and practices into the curriculum.</li>
+                            <li data-lang-es>Integré herramientas y prácticas de la industria al programa académico.</li>
+                            <li data-lang-en>Fostered an interactive learning environment that encouraged collaboration and problem-solving.</li>
+                            <li data-lang-es>Promoví un entorno de aprendizaje interactivo que fomentó la colaboración y la resolución de problemas.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                        <h4 class="skill-cat">Frameworks and Libraries</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Angular</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Express</span>
-                            <span class="skill-tag">Redux</span>
-                            <span class="skill-tag">Bootstrap</span>
-                            <span class="skill-tag">Tailwind CSS</span>
-                        </div>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2021 — 2022</span>
+                    </div>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role">Senior Software Engineer</h4>
+                        <p class="cv-xp-org">BairesDev <span class="cv-xp-loc">· California, US · Remote</span></p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Part of the delivery team working remotely for Design Interactive Inc., contributing to the XMentor XR training platform.</li>
+                            <li data-lang-es>Parte del equipo de entrega trabajando en remoto para Design Interactive Inc., aportando a la plataforma XR XMentor.</li>
+                            <li data-lang-en>Shipped web and mobile features for Extended Reality training experiences.</li>
+                            <li data-lang-es>Entregué funcionalidades web y mobile para experiencias de entrenamiento en Extended Reality.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                        <h4 class="skill-cat">Tools and Platforms</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Jira</span>
-                            <span class="skill-tag">Microsoft DevOps</span>
-                        </div>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2020 — 2021</span>
+                    </div>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role" data-lang-en>Senior Software Engineer · Tech Leader</h4>
+                        <h4 class="cv-xp-role" data-lang-es>Senior Software Engineer · Tech Leader</h4>
+                        <p class="cv-xp-org">
+                            <span data-lang-en>Ministry of Health of Neuquén</span>
+                            <span data-lang-es>Ministerio de Salud de Neuquén</span>
+                            <span class="cv-xp-loc">· Neuquén, AR</span>
+                        </p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Led the software development team in adopting Clean Code principles, agile methodologies and continuous integration.</li>
+                            <li data-lang-es>Lideré al equipo de desarrollo en la adopción de principios Clean Code, metodologías ágiles e integración continua.</li>
+                            <li data-lang-en>Ensured high code quality, maintainability and scalability through mentoring and code reviews.</li>
+                            <li data-lang-es>Aseguré calidad, mantenibilidad y escalabilidad a través de mentoría y code reviews.</li>
+                            <li data-lang-en>Worked with stakeholders to translate health needs into technical solutions.</li>
+                            <li data-lang-es>Trabajé con stakeholders para traducir necesidades sanitarias en soluciones técnicas.</li>
+                            <li data-lang-en>Promoted innovation, best practices and a culture of continuous improvement.</li>
+                            <li data-lang-es>Promoví innovación, buenas prácticas y una cultura de mejora continua.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                        <h4 class="skill-cat">Databases</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">Firebase</span>
-                        </div>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2019 — 2020</span>
                     </div>
-                </section>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role" data-lang-en>General Director of Technology</h4>
+                        <h4 class="cv-xp-role" data-lang-es>Director General de Tecnología</h4>
+                        <p class="cv-xp-org">
+                            <span data-lang-en>Ministry of Health of Neuquén</span>
+                            <span data-lang-es>Ministerio de Salud de Neuquén</span>
+                            <span class="cv-xp-loc">· Neuquén, AR</span>
+                        </p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Strategic leadership over technical support, networking, infrastructure and software development teams.</li>
+                            <li data-lang-es>Liderazgo estratégico sobre equipos de soporte técnico, redes, infraestructura y desarrollo de software.</li>
+                            <li data-lang-en>Led critical projects such as the provincial COVID-19 vaccination software and integration with national systems.</li>
+                            <li data-lang-es>Lideré proyectos críticos como el software provincial de vacunación COVID-19 y su integración con sistemas nacionales.</li>
+                            <li data-lang-en>Led the expansion of the provincial health connectivity network in partnership with ARSAT.</li>
+                            <li data-lang-es>Lideré la expansión de la red de conectividad sanitaria provincial junto a ARSAT.</li>
+                            <li data-lang-en>Modernized hospital information systems, improving operational efficiency.</li>
+                            <li data-lang-es>Modernicé sistemas de información hospitalaria, mejorando la eficiencia operativa.</li>
+                            <li data-lang-en>Delivered rapid technological solutions during the COVID-19 pandemic.</li>
+                            <li data-lang-es>Entregué soluciones tecnológicas rápidas durante la pandemia COVID-19.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <!-- EDUCATION -->
-                <section id="education-section" class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">cat education.md</span>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2015 — 2020</span>
                     </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role" data-lang-en>Head of Software Engineering Department</h4>
+                        <h4 class="cv-xp-role" data-lang-es>Jefe del Departamento de Ingeniería de Software</h4>
+                        <p class="cv-xp-org">
+                            <span data-lang-en>Ministry of Health of Neuquén</span>
+                            <span data-lang-es>Ministerio de Salud de Neuquén</span>
+                            <span class="cv-xp-loc">· Neuquén, AR</span>
+                        </p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Led the Software Engineering Department, overseeing design, development and maintenance of critical health systems.</li>
+                            <li data-lang-es>Lideré el Departamento de Ingeniería de Software, supervisando diseño, desarrollo y mantenimiento de sistemas sanitarios críticos.</li>
+                            <li data-lang-en>Defined and implemented software development standards ensuring regulatory compliance.</li>
+                            <li data-lang-es>Definí e implementé estándares de desarrollo asegurando cumplimiento regulatorio.</li>
+                            <li data-lang-en>Managed cross-functional teams that delivered digital solutions for clinical management.</li>
+                            <li data-lang-es>Gestioné equipos multidisciplinarios que entregaron soluciones digitales para gestión clínica.</li>
+                            <li data-lang-en>Promoted agile methodologies and continuous delivery practices.</li>
+                            <li data-lang-es>Promoví metodologías ágiles y prácticas de entrega continua.</li>
+                            <li data-lang-en>Drove innovation initiatives to modernize legacy systems and integrate with national health platforms.</li>
+                            <li data-lang-es>Conduje iniciativas de innovación para modernizar sistemas legacy e integrarlos con plataformas nacionales.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                        <div class="edu-item">
-                            <div class="edu-degree">Bachelor's in Computer Science</div>
-                            <div class="edu-school">Universidad Nacional del Comahue (UNCO)</div>
-                            <div class="edu-date">2003 - 2009</div>
-                        </div>
-                        <div class="edu-item last">
-                            <div class="edu-degree">Computing Analyst</div>
-                            <div class="edu-school">Universidad Nacional del Comahue (UNCO)</div>
-                            <div class="edu-date">1999 - 2006</div>
-                        </div>
+                <article class="cv-xp">
+                    <div class="cv-xp-when">
+                        <span class="cv-xp-date">2010 — 2015</span>
                     </div>
-                </section>
+                    <div class="cv-xp-body">
+                        <h4 class="cv-xp-role">Senior Software Engineer</h4>
+                        <p class="cv-xp-org">Hospital Dr. Castro Rendón <span class="cv-xp-loc">· Neuquén, AR</span></p>
+                        <ul class="cv-xp-bullets">
+                            <li data-lang-en>Developed and maintained health software solutions for hospital operations and patient management.</li>
+                            <li data-lang-es>Desarrollé y mantuve soluciones de software sanitario para operaciones hospitalarias y gestión de pacientes.</li>
+                            <li data-lang-en>Collaborated with multidisciplinary teams to deliver user-centered functional applications.</li>
+                            <li data-lang-es>Colaboré con equipos multidisciplinarios para entregar aplicaciones funcionales centradas en el usuario.</li>
+                            <li data-lang-en>Implemented software improvements to enhance clinical workflows.</li>
+                            <li data-lang-es>Implementé mejoras para optimizar los flujos clínicos.</li>
+                            <li data-lang-en>Participated in the integration of hospital systems with provincial and national health networks.</li>
+                            <li data-lang-es>Participé en la integración de sistemas hospitalarios con redes sanitarias provinciales y nacionales.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <!-- LANGUAGES -->
-                <section class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">locale</span>
-                    </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-language"></i> Languages</h3>
-                        <div class="lang-list">
-                            <div class="lang-row">
-                                <span class="lang-name">Spanish</span>
-                                <span class="lang-level native">Native</span>
-                            </div>
-                            <div class="lang-row">
-                                <span class="lang-name">English</span>
-                                <span class="lang-level advanced">Advanced</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- CERTIFICATIONS -->
-                <section id="certs-section" class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">ls ~/certs/</span>
-                    </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-certificate"></i> Certifications</h3>
-                        <div class="cert-list">
-                            <div class="cert-row"><span class="cert-name">Implementing Software Architecture of a Large Scale System</span><span class="cert-year">2024</span></div>
-                            <div class="cert-row"><span class="cert-name">HL7 FHIR Intermediate Course</span><span class="cert-year">2021</span></div>
-                            <div class="cert-row"><span class="cert-name">M320: Data Modeling</span><span class="cert-year">2019</span></div>
-                            <div class="cert-row"><span class="cert-name">HL7 FHIR Fundamentals Course</span><span class="cert-year">2019</span></div>
-                            <div class="cert-row"><span class="cert-name">Speaker JAIIO CAIS 2019</span><span class="cert-year">2019</span></div>
-                            <div class="cert-row"><span class="cert-name">Agile Practices Workshop with Scrum JAIIO CAIS 2019</span><span class="cert-year">2019</span></div>
-                            <div class="cert-row"><span class="cert-name">Flisol Talk: Andes - A free software project in real life</span><span class="cert-year">2019</span></div>
-                            <div class="cert-row"><span class="cert-name">M121: The MongoDB Aggregation Framework</span><span class="cert-year">2018</span></div>
-                            <div class="cert-row"><span class="cert-name">M312: Diagnostics and Debugging</span><span class="cert-year">2017</span></div>
-                            <div class="cert-row"><span class="cert-name">Speaker CAIS 2017 46JAIIO/XLIII CLEI</span><span class="cert-year">2017</span></div>
-                            <div class="cert-row"><span class="cert-name">M201 MongoDB Performance</span><span class="cert-year">2017</span></div>
-                            <div class="cert-row"><span class="cert-name">M102: MongoDB for DBA</span><span class="cert-year">2017</span></div>
-                            <div class="cert-row"><span class="cert-name">MongoDB Security</span><span class="cert-year">2017</span></div>
-                            <div class="cert-row"><span class="cert-name">MongoDB and Node.js for Developers</span><span class="cert-year">2016</span></div>
-                            <div class="cert-row"><span class="cert-name">VMware vSphere Essential + Workshop</span><span class="cert-year">2015</span></div>
-                            <div class="cert-row"><span class="cert-name">An Introduction to Interactive Programming in Python</span><span class="cert-year">2013</span></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- INTERESTS -->
-                <section class="cv-section terminal-window">
-                    <div class="terminal-chrome">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">cat interests.txt</span>
-                    </div>
-                    <div class="terminal-body">
-                        <h3 class="section-heading"><i class="fas fa-heart"></i> Interests</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Software Architecture</span>
-                            <span class="skill-tag">Web Development</span>
-                            <span class="skill-tag">Mobile Development</span>
-                            <span class="skill-tag">New Technologies</span>
-                            <span class="skill-tag">Agile Methodologies</span>
-                        </div>
-                    </div>
-                </section>
             </div>
-        </main>
-    </div>
+        </section>
 
-    <!-- ========== VIM BAR ========== -->
-    <footer class="vim-bar" id="vimBar">
-        <div class="vim-left">
-            <span class="vim-mode">NORMAL</span>
-            <span class="vim-file">resume.md</span>
-            <span class="vim-modified">[+]</span>
-        </div>
-        <div class="vim-center">
-            <span class="vim-encoding">utf-8</span>
-            <span class="vim-type">markdown</span>
-        </div>
-        <div class="vim-right">
-            <span class="vim-pct" id="vimPct">Top</span>
-            <span class="vim-pos" id="vimPos">1:1</span>
+        <!-- KEY PROJECTS -->
+        <section class="cv-section">
+            <div class="cv-section-header">
+                <span class="cv-section-label">02</span>
+                <h3 class="cv-section-title">
+                    <span data-lang-en>Key Projects</span>
+                    <span data-lang-es>Proyectos Clave</span>
+                </h3>
+            </div>
+
+            <div class="cv-projects">
+
+                <article class="cv-project">
+                    <h4 class="cv-project-title">
+                        <span data-lang-en>ANDES — Unified Digital Health Record (Neuquén)</span>
+                        <span data-lang-es>ANDES — Historia Única Digital de Salud (Neuquén)</span>
+                    </h4>
+                    <p class="cv-project-desc" data-lang-en>Digital platform for patients and healthcare teams across the provincial public system, providing secure access and management of health data. Technological backbone of HUDS, following HL7 FHIR international standards. Open source.</p>
+                    <p class="cv-project-desc" data-lang-es>Plataforma digital para pacientes y equipos sanitarios del sistema público provincial, que permite acceso y gestión segura de datos de salud. Columna tecnológica de la HUDS, siguiendo estándares internacionales HL7 FHIR. Software libre.</p>
+                </article>
+
+                <article class="cv-project">
+                    <h4 class="cv-project-title">
+                        <span data-lang-en>COVID-19 Vaccination Platform (Neuquén)</span>
+                        <span data-lang-es>Plataforma de Vacunación COVID-19 (Neuquén)</span>
+                    </h4>
+                    <p class="cv-project-desc" data-lang-en>Provincial-scale vaccination software delivered in weeks during the pandemic. Integrated with national systems. Supported logistics, citizen scheduling and follow-up. Led as General Director of Technology.</p>
+                    <p class="cv-project-desc" data-lang-es>Software de vacunación a escala provincial entregado en semanas durante la pandemia. Integrado con sistemas nacionales. Soportó logística, turnos ciudadanos y seguimiento. Liderado como Director General de Tecnología.</p>
+                </article>
+
+                <article class="cv-project">
+                    <h4 class="cv-project-title">Blackthorn — Payments & Events</h4>
+                    <p class="cv-project-desc" data-lang-en>Comprehensive payment and event-management SaaS platform optimizing billing, invoicing, event registration and fundraising. Scalable and secure, with deep Salesforce integration for organizations across the United States.</p>
+                    <p class="cv-project-desc" data-lang-es>Plataforma SaaS integral de gestión de pagos y eventos que optimiza facturación, cobros, registro de eventos y recaudación. Escalable y segura, con integración profunda a Salesforce para organizaciones de todo Estados Unidos.</p>
+                </article>
+
+                <article class="cv-project">
+                    <h4 class="cv-project-title">XMentor — Extended Reality Training</h4>
+                    <p class="cv-project-desc" data-lang-en>Extended Reality training platform by Design Interactive delivering immersive, scalable, cost-effective training solutions for health and industrial environments using AR and VR on mobile and web.</p>
+                    <p class="cv-project-desc" data-lang-es>Plataforma de Extended Reality de Design Interactive que entrega capacitación inmersiva, escalable y costo-efectiva para entornos sanitarios e industriales, usando AR y VR en mobile y web.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="cv-section">
+            <div class="cv-section-header">
+                <span class="cv-section-label">03</span>
+                <h3 class="cv-section-title">
+                    <span data-lang-en>Skills</span>
+                    <span data-lang-es>Habilidades</span>
+                </h3>
+            </div>
+
+            <div class="cv-skills">
+                <div class="cv-skill-group">
+                    <h4 class="cv-skill-title" data-lang-en>Programming Languages</h4>
+                    <h4 class="cv-skill-title" data-lang-es>Lenguajes de Programación</h4>
+                    <p class="cv-skill-list">JavaScript · TypeScript · HTML5 · CSS3 · SQL</p>
+                </div>
+                <div class="cv-skill-group">
+                    <h4 class="cv-skill-title" data-lang-en>Frameworks & Libraries</h4>
+                    <h4 class="cv-skill-title" data-lang-es>Frameworks y Librerías</h4>
+                    <p class="cv-skill-list">Angular · Node.js · Express · Redux · Bootstrap · Tailwind CSS</p>
+                </div>
+                <div class="cv-skill-group">
+                    <h4 class="cv-skill-title" data-lang-en>Databases</h4>
+                    <h4 class="cv-skill-title" data-lang-es>Bases de Datos</h4>
+                    <p class="cv-skill-list">MongoDB · PostgreSQL · MySQL · Firebase</p>
+                </div>
+                <div class="cv-skill-group">
+                    <h4 class="cv-skill-title" data-lang-en>Tools & Platforms</h4>
+                    <h4 class="cv-skill-title" data-lang-es>Herramientas y Plataformas</h4>
+                    <p class="cv-skill-list">Git · GitHub · AWS · Docker · Salesforce · Jira · Microsoft DevOps · VS Code</p>
+                </div>
+                <div class="cv-skill-group">
+                    <h4 class="cv-skill-title" data-lang-en>Practice & Methodology</h4>
+                    <h4 class="cv-skill-title" data-lang-es>Práctica y Metodología</h4>
+                    <p class="cv-skill-list" data-lang-en>Clean Architecture · HL7 FHIR · Agile / Scrum · CI/CD · Technical Leadership · Mentoring</p>
+                    <p class="cv-skill-list" data-lang-es>Clean Architecture · HL7 FHIR · Ágil / Scrum · CI/CD · Liderazgo Técnico · Mentoría</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="cv-section">
+            <div class="cv-section-header">
+                <span class="cv-section-label">04</span>
+                <h3 class="cv-section-title">
+                    <span data-lang-en>Education</span>
+                    <span data-lang-es>Formación</span>
+                </h3>
+            </div>
+
+            <div class="cv-edu-list">
+                <article class="cv-edu">
+                    <div class="cv-edu-date">2003 — 2009</div>
+                    <div>
+                        <h4 class="cv-edu-degree" data-lang-en>Bachelor's in Computer Science</h4>
+                        <h4 class="cv-edu-degree" data-lang-es>Licenciatura en Ciencias de la Computación</h4>
+                        <p class="cv-edu-school">Universidad Nacional del Comahue (UNCO)</p>
+                    </div>
+                </article>
+                <article class="cv-edu">
+                    <div class="cv-edu-date">1999 — 2006</div>
+                    <div>
+                        <h4 class="cv-edu-degree" data-lang-en>Computing Analyst</h4>
+                        <h4 class="cv-edu-degree" data-lang-es>Analista de Computación</h4>
+                        <p class="cv-edu-school">Universidad Nacional del Comahue (UNCO)</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section class="cv-section">
+            <div class="cv-section-header">
+                <span class="cv-section-label">05</span>
+                <h3 class="cv-section-title">
+                    <span data-lang-en>Certifications & Speaking</span>
+                    <span data-lang-es>Certificaciones y Charlas</span>
+                </h3>
+            </div>
+
+            <ul class="cv-certs">
+                <li class="cv-cert"><span class="cv-cert-year">2024</span><span data-lang-en>Implementing Software Architecture of a Large Scale System</span><span data-lang-es>Implementando la arquitectura de software de un sistema de gran escala</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2021</span><span>HL7 FHIR Intermediate Course</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2019</span><span>M320: Data Modeling (MongoDB)</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2019</span><span>HL7 FHIR Fundamentals Course</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2019</span><span>Speaker · JAIIO CAIS 2019</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2019</span><span data-lang-en>Agile Practices Workshop with Scrum · JAIIO CAIS 2019</span><span data-lang-es>Workshop de Prácticas Ágiles con Scrum · JAIIO CAIS 2019</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2019</span><span data-lang-en>FLISOL Talk: Andes, a free software project in real life</span><span data-lang-es>Charla FLISOL: Andes, un proyecto de software libre en la vida real</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2018</span><span>M121: The MongoDB Aggregation Framework</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2017</span><span>M312: Diagnostics and Debugging (MongoDB)</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2017</span><span>Speaker · CAIS 2017 · 46 JAIIO / XLIII CLEI</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2017</span><span>M201: MongoDB Performance</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2017</span><span>M102: MongoDB for DBA</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2017</span><span>MongoDB Security</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2016</span><span>MongoDB and Node.js for Developers</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2015</span><span>VMware vSphere Essential + Workshop</span></li>
+                <li class="cv-cert"><span class="cv-cert-year">2013</span><span data-lang-en>An Introduction to Interactive Programming in Python</span><span data-lang-es>Introducción a la Programación Interactiva en Python</span></li>
+            </ul>
+        </section>
+
+        <!-- INTERESTS -->
+        <section class="cv-section">
+            <div class="cv-section-header">
+                <span class="cv-section-label">06</span>
+                <h3 class="cv-section-title">
+                    <span data-lang-en>Interests</span>
+                    <span data-lang-es>Intereses</span>
+                </h3>
+            </div>
+            <p class="cv-interests" data-lang-en>Software Architecture · Web Development · Mobile Development · New Technologies · Agile Methodologies · Healthcare Informatics · Teaching</p>
+            <p class="cv-interests" data-lang-es>Arquitectura de Software · Desarrollo Web · Desarrollo Mobile · Nuevas Tecnologías · Metodologías Ágiles · Informática en Salud · Docencia</p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="cv-footer no-print">
+        <div class="cv-footer-inner">
+            <span data-lang-en>© 2026 Hugo Héctor Fernández · Neuquén, Argentina</span>
+            <span data-lang-es>© 2026 Hugo Héctor Fernández · Neuquén, Argentina</span>
+            <a href="index.html">
+                <span data-lang-en>Back to portfolio</span>
+                <span data-lang-es>Volver al portfolio</span>
+            </a>
         </div>
     </footer>
 
