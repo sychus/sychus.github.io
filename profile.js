@@ -104,12 +104,12 @@
         if (!el) return;
 
         const phrases = [
-            'Senior Software Engineer',
-            'Tech Lead @ Blackthorn',
-            'Healthcare Informatics',
-            'TypeScript · Angular · Node.js',
-            'Clean Architecture · HL7 FHIR',
-            'Available for consulting'
+            'Staff Engineer · Software Architect',
+            'AI agents that are right, or silent',
+            'Payments · Health · Enterprise SaaS',
+            'TypeScript · Node.js · Angular · Python',
+            'HL7 FHIR · Clean Architecture · MCP',
+            'Open to Staff+ roles · Full remote'
         ];
 
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -212,9 +212,16 @@
     /* ====== FEATURED RECOMMENDATION ROTATOR ====== */
     const FEATURED_RECOS = [
         {
+            initials: 'JA',
+            name: 'Jason Arias',
+            role: 'QA Engineer · Blackthorn.io',
+            en: 'Some colleagues are great at their job. Hugo is one of the few who <em>also makes everyone around him better at theirs</em>.',
+            es: 'Algunos colegas son excelentes en su trabajo. Hugo es uno de los pocos que <em>además hace mejores en el suyo a todos los que lo rodean</em>.'
+        },
+        {
             initials: 'FZ',
             name: 'Fernando Zamperin',
-            role: 'IT Swiss Knife Expert',
+            role: 'Solutions Architect · Software Engineer',
             en: 'He\'s a <em>swiss knife</em> of programming and architecture — he thinks about the solution technically, but also about culture, business and the company as a whole.',
             es: 'Es una <em>navaja suiza</em> de la programación y la arquitectura — piensa la solución técnicamente, pero también la cultura, el negocio y la empresa como un todo.'
         },

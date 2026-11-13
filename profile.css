@@ -1054,6 +1054,104 @@ section {
     font-weight: var(--fw-medium);
 }
 
+/* Work: intro, groups, decision records, repo links */
+.work-intro {
+    font-size: var(--fs-md);
+    line-height: var(--lh-prose);
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin-bottom: var(--s-7);
+}
+
+.work-group-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: var(--fw-medium);
+    color: var(--ink-4);
+    letter-spacing: var(--tr-wider);
+    text-transform: uppercase;
+    margin: var(--s-8) 0 var(--s-4);
+    padding-bottom: var(--s-2);
+    border-bottom: 1px solid var(--rule);
+}
+
+.work-group-label:first-of-type { margin-top: 0; }
+
+.work-adr {
+    display: grid;
+    gap: var(--s-3);
+    margin: 0 0 var(--s-2);
+    max-width: 68ch;
+}
+
+.work-adr-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: var(--s-4);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--rule);
+}
+
+.work-adr-row dt {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    color: var(--accent);
+    letter-spacing: var(--tr-wider);
+    text-transform: uppercase;
+    line-height: 1.9;
+}
+
+.work-adr-row dd {
+    margin: 0;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-prose);
+    color: var(--ink-2);
+}
+
+.work-adr-row dd strong {
+    color: var(--ink);
+    font-weight: var(--fw-semibold);
+}
+
+.work-adr code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--ink);
+    padding: 1px 6px;
+    border: 1px solid var(--rule-2);
+    border-radius: 4px;
+    background: var(--bg);
+}
+
+.work-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin-top: var(--s-4);
+}
+
+.work-link {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur) var(--ease);
+    overflow-wrap: anywhere;
+}
+
+.work-link:hover,
+.work-link:focus-visible {
+    border-bottom-color: var(--accent);
+}
+
+@media (max-width: 560px) {
+    .work-adr-row {
+        grid-template-columns: 1fr;
+        gap: var(--s-1);
+    }
+}
+
 /* ========== RECOMMENDATIONS ========== */
 .recommendations {
     border-top: 1px solid var(--rule);
